@@ -4,15 +4,16 @@
  */
 package com.enzomarco.gestion.concesionaria.IGU;
 
+import com.enzomarco.gestion.concesionaria.logica.ControladorLogica;
+
 /**
  *
  * @author Usuario
  */
 public class AltaAutomovil extends javax.swing.JFrame {
 
-    /**
-     * Creates new form AltaAutomovil
-     */
+    ControladorLogica controlG = new ControladorLogica();
+    
     public AltaAutomovil() {
         initComponents();
     }
@@ -236,11 +237,20 @@ public class AltaAutomovil extends javax.swing.JFrame {
     }//GEN-LAST:event_txtPuertasActionPerformed
 
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
-        // TODO add your handling code here:
+        txtModelo.setText("");
+        txtMarca.setText("");
+        txtMotor.setText("");
+        txtColor.setText("");
+        txtPatente.setText("");
+        txtPuertas.setText("");
+
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-        // TODO add your handling code here:
+        controlG.agregarAutomovil(
+                txtModelo.getText(), txtMarca.getText(), txtMotor.getText(), txtColor.getText(),
+                txtPatente.getText(), Integer.parseInt(txtPuertas.getText())
+        );
     }//GEN-LAST:event_btnAgregarActionPerformed
 
 
