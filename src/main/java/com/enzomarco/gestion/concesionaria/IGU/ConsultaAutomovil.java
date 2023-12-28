@@ -132,6 +132,23 @@ public class ConsultaAutomovil extends javax.swing.JFrame {
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
         
+        if (tablaAutos.getRowCount() > 0){
+            if (tablaAutos.getSelectedRow() != -1){
+                
+                int idAuto = (int) tablaAutos.getValueAt(tablaAutos.getSelectedRow(), 0);
+                
+                ModificarAutomovil modificarVista = new ModificarAutomovil(idAuto);
+                modificarVista.setVisible(true);
+                modificarVista.setLocationRelativeTo(null);
+                
+                this.dispose();
+
+            }else {
+                mostrarMensaje("No seleccionó un registro a modificar", "Error", "Error al modificar");
+            }
+        }else {
+            mostrarMensaje("La tabla está vacia, no se puede modificar", "Error", "Error al modificar");
+        }
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
@@ -144,18 +161,13 @@ public class ConsultaAutomovil extends javax.swing.JFrame {
                 controlG.borrarAuto(idAuto);
                 mostrarMensaje("Auto borrado correctamente", "Info", "Borrado exitoso");
                 cargarTabla();
-            }
-            else{
+                
+            }else {
                 mostrarMensaje("No seleccionó un registro a eliminar", "Error", "Error al eliminar");
-
             }
-            
-        }else{
+        }else {
             mostrarMensaje("La tabla está vacia, no se puede eliminar", "Error", "Error al eliminar");
-
         }
-        
-
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened

@@ -26,5 +26,17 @@ public class ControladorPersistencia {
             Logger.getLogger(ControladorPersistencia.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    public Automovil traerAutomovil(int idAuto) {
+        return autoJpa.findAutomovil(idAuto);
+    }
+
+    public void modificarAutomovil(Automovil auto) {
+        try {
+            autoJpa.edit(auto);
+        } catch (Exception ex) {
+            Logger.getLogger(ControladorPersistencia.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     
 }
