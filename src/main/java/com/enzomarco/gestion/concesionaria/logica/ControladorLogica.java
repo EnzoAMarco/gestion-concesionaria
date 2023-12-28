@@ -25,6 +25,10 @@ public class ControladorLogica {
     public List<Automovil> traerAutos() {
         return controlP.traerAautos();
     }
+
+    public void borrarAuto(int idAuto) {
+        controlP.borrarAuto(idAuto);
+    }
     
 
     

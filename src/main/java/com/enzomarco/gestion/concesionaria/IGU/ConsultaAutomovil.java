@@ -6,8 +6,9 @@ package com.enzomarco.gestion.concesionaria.IGU;
 
 import com.enzomarco.gestion.concesionaria.logica.Automovil;
 import com.enzomarco.gestion.concesionaria.logica.ControladorLogica;
-import java.util.Arrays;
 import java.util.List;
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -134,13 +135,31 @@ public class ConsultaAutomovil extends javax.swing.JFrame {
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        // TODO add your handling code here:
+
+        if (tablaAutos.getRowCount() > 0){
+            if (tablaAutos.getSelectedRow() != -1){
+                
+                int idAuto = (int) tablaAutos.getValueAt(tablaAutos.getSelectedRow(), 0);
+                
+                controlG.borrarAuto(idAuto);
+                mostrarMensaje("Auto borrado correctamente", "Info", "Borrado exitoso");
+                cargarTabla();
+            }
+            else{
+                mostrarMensaje("No seleccionó un registro a eliminar", "Error", "Error al eliminar");
+
+            }
+            
+        }else{
+            mostrarMensaje("La tabla está vacia, no se puede eliminar", "Error", "Error al eliminar");
+
+        }
+        
+
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        
         cargarTabla();
-        
     }//GEN-LAST:event_formWindowOpened
 
 
@@ -184,4 +203,21 @@ public class ConsultaAutomovil extends javax.swing.JFrame {
         tablaAutos.setModel(modeloTabla);
         
     }
+    
+    public void mostrarMensaje(String mensaje, String tipo, String titulo) {
+        JOptionPane optionPane = new JOptionPane(mensaje);
+        
+        if(tipo.equals("Info")){
+            optionPane.setMessageType(JOptionPane.INFORMATION_MESSAGE);
+        }
+        else if(tipo.equals("Error")) {
+            optionPane.setMessageType(JOptionPane.ERROR_MESSAGE);
+        }
+        
+        JDialog dialog = optionPane.createDialog(titulo);
+        
+        dialog.setAlwaysOnTop(true);
+        dialog.setVisible(true);
+    }
+    
 }
