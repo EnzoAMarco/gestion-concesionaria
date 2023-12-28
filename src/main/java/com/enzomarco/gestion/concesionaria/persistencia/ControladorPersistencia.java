@@ -1,6 +1,7 @@
 package com.enzomarco.gestion.concesionaria.persistencia;
 
 import com.enzomarco.gestion.concesionaria.logica.Automovil;
+import java.util.List;
 
 
 public class ControladorPersistencia {
@@ -9,6 +10,10 @@ public class ControladorPersistencia {
     
     public void agregarAutomovil(Automovil auto) {
         autoJpa.create(auto);
+    }
+
+    public List<Automovil> traerAautos() {
+        return autoJpa.findAutomovilEntities();
     }
     
 }

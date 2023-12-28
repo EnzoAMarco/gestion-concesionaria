@@ -62,9 +62,9 @@ public class Home extends javax.swing.JFrame {
                             .addComponent(btnAlta, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(290, 290, 290)
+                        .addGap(300, 300, 300)
                         .addComponent(titulo)))
-                .addContainerGap(310, Short.MAX_VALUE))
+                .addContainerGap(300, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -95,7 +95,9 @@ public class Home extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultaActionPerformed
-        // TODO add your handling code here:
+        ConsultaAutomovil consultaVista = new ConsultaAutomovil();
+        consultaVista.setVisible(true);
+        consultaVista.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnConsultaActionPerformed
 
     private void btnAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAltaActionPerformed

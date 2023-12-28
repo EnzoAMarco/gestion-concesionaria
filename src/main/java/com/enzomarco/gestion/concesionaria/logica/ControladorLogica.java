@@ -1,6 +1,7 @@
 package com.enzomarco.gestion.concesionaria.logica;
 
 import com.enzomarco.gestion.concesionaria.persistencia.ControladorPersistencia;
+import java.util.List;
 
 
 public class ControladorLogica {
@@ -19,6 +20,10 @@ public class ControladorLogica {
 
         
         controlP.agregarAutomovil(auto);
+    }
+
+    public List<Automovil> traerAutos() {
+        return controlP.traerAautos();
     }
     
 
